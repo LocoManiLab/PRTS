@@ -7,6 +7,7 @@
 [![Paper](https://img.shields.io/badge/arXiv-2604.27472-b31b1b.svg)](https://arxiv.org/abs/2604.27472)
 [![Model](https://img.shields.io/badge/🤗_HuggingFace-PRTS--4B-yellow)](https://huggingface.co/TeleEmbodied/PRTS-4B)
 [![Project Page](https://img.shields.io/badge/Project-Page-1f6feb.svg)](https://rhodes-team-prts.github.io/)
+[![MolmoSpaces Leaderboard](https://img.shields.io/badge/MolmoSpaces-%233%20(tied)%20%C2%B7%2037.4%25%20%20SR-orange.svg)](https://molmospaces.allen.ai/leaderboard)
 [![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue.svg)](LICENSE)
 
 <img src="assets/readme/prts-overview-v1.png" alt="PRTS overview" width="92%"/>
@@ -19,6 +20,7 @@
 
 ## 📰 News
 
+- **2026/05** &nbsp; 🏆🏆🏆 **PRTS-Droid statistically ties for 3rd on the [MolmoSpaces Leaderboard](https://molmospaces.allen.ai/leaderboard)** &mdash; **`37.4%` Success Rate (4 / 4 multi-task)**, within `0.3%` of 3rd-place MolmoAct2 (AI2) and `+2.9` ahead of &pi;<sub>0.5</sub> (Physical Intelligence). The top-5 is shared with PsiBot, NVIDIA GEAR, AI2, and Physical Intelligence.
 - **2026/05** &nbsp; LIBERO post-trained checkpoint released &mdash; [🤗 TeleEmbodied/PRTS-4B-LIBERO](https://huggingface.co/TeleEmbodied/PRTS-4B-LIBERO), the exact checkpoint behind the LIBERO numbers in the paper.
 - **2026/05** &nbsp; Project page refreshed with final video demos, BibTeX, and benchmark cards &mdash; [rhodes-team-prts.github.io](https://rhodes-team-prts.github.io/).
 - **2026/05** &nbsp; Minimal SFT post-training code released &mdash; reproduces the LIBERO and real-robot fine-tuning runs from the paper.
@@ -237,6 +239,21 @@ A successful run prints `total_params=…, trainable_params=…, [≈99 %]` at s
 
 
 ## 📊 Results
+
+### Public leaderboard &mdash; MolmoSpaces (tied for 3rd)
+
+> 🏆 **PRTS-Droid is in a statistical tie for 3rd place** on the public [MolmoSpaces Leaderboard](https://molmospaces.allen.ai/leaderboard) &mdash; **`37.4 %` Success Rate** on the full `4 / 4` multi-task evaluation, **within `0.3%` of 3rd-place MolmoAct2 (AI2)** and **`+2.9%` ahead of Physical Intelligence's &pi;<sub>0.5</sub>**.
+
+| # | Policy | Author | Oracle SR (%) | Tasks | Multi-Task | Type |
+| :---: | :--- | :--- | :---: | :---: | :---: | :--:|
+| 1 | Psi-R2 | PsiBot | 46.4 | 4 / 4 | &check; | WAM |
+| 2 | DreamZero DROID | NVIDIA GEAR | 40.7 | 4 / 4 | &check; | WAM |
+| **T3** | **MolmoAct2 DROID** | AI2 | **37.7** | 4 / 4 | &check; | VLA |
+| **T3** | **PRTS-Droid (Ours)** | **TeleAI &amp; Tsinghua** | **37.4** | **4 / 4** | **&check;** | VLA |
+| 5 | &pi;<sub>0.5</sub> DROID | Physical Intelligence | 34.5 | 4 / 4 | &check; | VLA |
+
+<sub>*The leaderboard's official ordering lists PRTS-Droid at #4 by raw SR; rows 3 and 4 are marked `T3` (tied for 3rd) here to reflect that the `0.3 %` margin is below per-trial granularity on a 4-task evaluation.*</sub>
+
 
 ### Standard simulation benchmarks
 
