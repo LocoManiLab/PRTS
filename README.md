@@ -7,7 +7,7 @@
 [![Paper](https://img.shields.io/badge/arXiv-2604.27472-b31b1b.svg)](https://arxiv.org/abs/2604.27472)
 [![Model](https://img.shields.io/badge/🤗_HuggingFace-PRTS--4B-yellow)](https://huggingface.co/TeleEmbodied/PRTS-4B)
 [![Project Page](https://img.shields.io/badge/Project-Page-1f6feb.svg)](https://rhodes-team-prts.github.io/)
-[![MolmoSpaces Leaderboard](https://img.shields.io/badge/MolmoSpaces-%233%20(tied)%20%C2%B7%2037.4%25%20%20SR-orange.svg)](https://molmospaces.allen.ai/leaderboard)
+[![MolmoSpaces Leaderboard](https://img.shields.io/badge/MolmoSpaces-%233%20%20%C2%B7%2042.4%25%20%20SR-orange.svg)](https://molmospaces.allen.ai/leaderboard)
 [![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue.svg)](LICENSE)
 
 <img src="assets/readme/prts-overview-v1.png" alt="PRTS overview" width="92%"/>
