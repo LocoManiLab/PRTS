@@ -1,0 +1,10 @@
+lerobot_datasets:
+  - repo_id: lerobot/droid_1.0.1
+    root: /path/to/droid
+    load_quantile_stats: true
+    state_relative_action: true
+    select_video_keys: [observation.images.exterior_1_left, observation.images.wrist_left]
+    select_state_keys: [observation.state]
+    select_action_keys: [action]
+    instruction_keys: [language_instruction, language_instruction_2, language_instruction_3]
+    embodiment_tag: droid_panda
