@@ -367,7 +367,9 @@ class PRTSInterface:
                 }
                 actions = self.absolute_action_transform(item)["action"]
 
-        return {"actions": actions.cpu().numpy()}
+        # numpy has no bfloat16: .numpy() on a bf16 tensor raises
+        # "Got unsupported ScalarType BFloat16". Cast to float32 first (soma).
+        return {"actions": actions.detach().float().cpu().numpy()}
     
     # def _extract_actions_from_logits(self, logits: torch.Tensor) -> torch.Tensor:
     # TODO: Implement action extraction from model logits and policy reset functionality as needed.

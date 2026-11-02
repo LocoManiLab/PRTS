@@ -1,3 +1,29 @@
+## LocoManiLab modifications
+
+This repository is a modified fork of [TeleHuman/PRTS](https://github.com/TeleHuman/PRTS), based on upstream commit [`15cd007`](https://github.com/TeleHuman/PRTS/commit/15cd007afed891c1f28c69ec54dcb2d164805a2b). It was modified by Gamma Robotics for the [LocoManiLab](https://github.com/Gamma-Robot/LocoManiLab) humanoid loco-manipulation benchmark, which uses it as a git submodule. Everything below this section is the upstream README, unchanged.
+
+Summary of changes:
+
+- Register the `unitree_g1_sonic`, `unitree_g1_heft` and `unitree_g1_amo` embodiment tags for Unitree G1 whole-body data.
+- Example post-train data configs (`configs/post-train/g1_*.yaml`) for G1 LeRobot datasets; dataset roots are placeholders.
+- `deployment/run_prts_server.py`: a policy server speaking the Isaac-GR00T ZMQ `get_action` protocol, so the LocoManiLab simulator/robot client can drive PRTS.
+- `prts/interface.py`: cast bfloat16 actions to float32 before converting to numpy.
+
+Files modified or added relative to the upstream base commit:
+
+- `README.md` (modified: this section)
+- `configs/post-train/g1_amo_closefridge.yaml` (added)
+- `configs/post-train/g1_heft_openfridge.yaml` (added)
+- `configs/post-train/g1_sonic_401.yaml` (added)
+- `configs/post-train/g1_sonic_404.yaml` (added)
+- `deployment/run_prts_server.py` (added)
+- `prts/data/embodiment_tag.py` (modified)
+- `prts/interface.py` (modified)
+
+The upstream [LICENSE](LICENSE) (Creative Commons Attribution-NonCommercial 4.0 International, CC BY-NC 4.0) is retained unchanged. These modifications are distributed under the same CC BY-NC 4.0 license, so the non-commercial restriction applies to this fork as a whole, including the LocoManiLab changes. The MIT license of the main LocoManiLab repository does not extend to this fork.
+
+---
+
 <div align="center">
 
 # PRTS &mdash; Primitive Reasoning and Tasking System

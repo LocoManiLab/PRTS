@@ -1,0 +1,14 @@
+# G1 SONIC (soma) — IThorBathroomApproachToilet_401
+# Action layout mirrors gr00t/fastwam/starVLA so success rates are comparable:
+#   action.motion_token(64) + teleop.left_hand_joints(7) + teleop.right_hand_joints(7) = 78
+# NOTE: select_action_keys must be explicit — the default globs every "action*" feature,
+# which would also pull in action.wbc(29) and give 93-D instead of 78.
+lerobot_datasets:
+  - repo_id: soma/IThorBathroomApproachToilet_401
+    root: /path/to/datasets/IThorBathroomApproachToilet_401
+    load_quantile_stats: true
+    state_relative_action: false
+    select_video_keys: [observation.images.ego_view]
+    select_state_keys: [observation.state]
+    select_action_keys: [action.motion_token, teleop.left_hand_joints, teleop.right_hand_joints]
+    embodiment_tag: unitree_g1_sonic

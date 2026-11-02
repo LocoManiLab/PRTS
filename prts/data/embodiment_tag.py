@@ -45,6 +45,30 @@ class EmbodimentConfig:
 # longer than the actual number of action dimensions.
 # ---------------------------------------------------------------------------
 EMBODIMENT_CONFIGS: dict[str, EmbodimentConfig] = {
+    "unitree_g1_sonic": EmbodimentConfig(
+        name="unitree_g1_sonic",
+        # 78-D = action.motion_token(64) + left_hand(7) + right_hand(7); motion_token is an
+        # absolute quantized whole-body pose code, not an offset from state.
+        delta_action_mask=[False] * 78,
+        state_relative=False,
+    ),
+    "unitree_g1_heft": EmbodimentConfig(
+        name="unitree_g1_heft",
+        # 50-D = action.ref_qpos(36: root_pos 3 + root_quat wxyz 4 + joint targets 29)
+        # + action.hands(14: Dex3 7 per side). The reference frame the tracking policy is
+        # told to follow is an absolute pose, not an offset from where the robot is now --
+        # subtracting the state would destroy exactly the signal it carries.
+        delta_action_mask=[False] * 50,
+        state_relative=False,
+    ),
+    "unitree_g1_amo": EmbodimentConfig(
+        name="unitree_g1_amo",
+        # 36-D = hands(14) + arms(14) + torso rpy(3) + base height(1) + torso velocity
+        # command(vx, vy, vyaw) + target_yaw. Every group is an absolute setpoint in its
+        # own units; the velocity command in particular is not a delta of anything.
+        delta_action_mask=[False] * 36,
+        state_relative=False,
+    ),
     "libero_panda": EmbodimentConfig(
         name="libero_panda",
         delta_action_mask=[True] * 6 + [False] * 1,

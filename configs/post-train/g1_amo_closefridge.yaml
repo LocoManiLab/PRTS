@@ -1,0 +1,19 @@
+# G1 AMO (soma) — bench KitchenCloseFridge_amo
+# amo records the teleoperator's own command stream, and unlike sonic/heft it stores it
+# FLAT: one `action` column (36) and one `observation.state` column (32), not per-group
+# columns — so the select_* keys below are raw column names, not `action.<group>` paths.
+#   action            36 = hands(14) + arms(14) + rpy(3) + height(1) + torso_v(3) + target_yaw
+#   observation.state 32 = the same minus the four torso commands
+# Point this at the re-prepared copy, not the raw collection: prepare (as of 2026-08-07)
+# drops the six phantom teleop.* meta entries, writes the episodes_stats.jsonl LeRobot
+# v2.1 needs, and renames the legacy `states` column to `observation.state` — which is
+# what PRTS matches on (OBS_STATE); under the old name it saw no state at all.
+lerobot_datasets:
+  - repo_id: soma/KitchenCloseFridge_amo
+    root: /path/to/datasets/KitchenCloseFridge_amo_fixed
+    load_quantile_stats: true
+    state_relative_action: false
+    select_video_keys: [observation.images.ego_view]
+    select_state_keys: [observation.state]
+    select_action_keys: [action]
+    embodiment_tag: unitree_g1_amo

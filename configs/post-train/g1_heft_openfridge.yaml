@@ -1,0 +1,16 @@
+# G1 HEFT (soma) — bench KitchenOpenFridge_heft
+# heft records the tracking policy's own reference frame instead of a latent token:
+#   action.ref_qpos(36) + action.hands(14) = 50
+# State is body joints only (29) — heft keeps the hands in a separate channel, and the
+# dataset carries observation.root_orientation / projected_gravity that this config does
+# not consume (PRTS takes a single state vector).
+# NOTE: select_action_keys must be explicit — the default globs every "action*" feature.
+lerobot_datasets:
+  - repo_id: soma/KitchenOpenFridge_heft
+    root: /path/to/datasets/KitchenOpenFridge_heft
+    load_quantile_stats: true
+    state_relative_action: false
+    select_video_keys: [observation.images.ego_view]
+    select_state_keys: [observation.state]
+    select_action_keys: [action.ref_qpos, action.hands]
+    embodiment_tag: unitree_g1_heft
